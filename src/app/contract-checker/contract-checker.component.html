@@ -1,0 +1,12 @@
+ <article class="contract">
+    <div class="account"> konto: {{ accountNumber }}</div>
+    <h1>Sprawdź wartość</h1>
+    <div class="secondary">
+      Wartość na koncie {{ remoteAccountNumber  }} 
+      <br/> wynosi <span class="balance"> {{ balance }} </span>
+    </div>
+    <button (click)="checkBalance()">Sprawdź wartość</button>
+  </article>
+
+
+  

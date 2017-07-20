@@ -1,0 +1,9 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  margin-left: 25px;
+  margin-right: 25px;
+  max-width: 1300px;
+  margin-top: 10%;
+  font-family: "Open Sans", sans-serif;
+  background: #fafafa;
+}

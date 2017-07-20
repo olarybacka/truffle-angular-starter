@@ -1,0 +1,12 @@
+  <article class="contract">
+    <div class="account"> konto: {{ accountNumber }}</div>
+    <h1>Zmień wartość</h1>
+    <div>
+      <label for="amount">Nowa wartość: </label>
+      <input [(ngModel)]="amount" type="number" placeholder="od 0 do 127"/>
+    </div>
+    <button (click)="onSubmit()" >Wyślij</button>
+    <div class="status">
+      {{status}}
+    </div>
+  </article>

@@ -1,0 +1,40 @@
+@import '../../assets/colors';
+@import '../../assets/buttons';
+
+
+.contract{
+    display: inline-block;
+    width: 41%;
+    vertical-align: top;
+    background: #fff;
+    padding: 20px;
+    height: 250px;
+    border: 2px solid $main;
+    margin: 10px;
+    min-width: 430px;
+    position: relative;
+}
+
+
+.black {
+  color: black;
+  font-weight: 700;
+}
+
+.balance {
+  color: black;
+}
+
+.secondary {
+  color: #666;
+}
+
+
+.account{
+    margin-bottom: 20px;
+}
+
+#status{
+    color: $main;
+    margin: 30px 0;
+}
