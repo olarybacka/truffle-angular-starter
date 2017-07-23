@@ -5519,6 +5519,22 @@ truffle-contract@^1.1.6:
     truffle-contract-schema "0.0.5"
     web3 "^0.16.0"
 
+"truffle-init-webpack@https://github.com/olarybacka/truffle-angular-starter.git":
+  version "0.0.1"
+  resolved "https://github.com/olarybacka/truffle-angular-starter.git#7f10c7c2d81ef68e47e3c1fdb0314c86924589cb"
+  dependencies:
+    "@angular/common" "^4.0.0"
+    "@angular/compiler" "^4.0.0"
+    "@angular/core" "^4.0.0"
+    "@angular/forms" "^4.0.0"
+    "@angular/http" "^4.0.0"
+    "@angular/platform-browser" "^4.0.0"
+    "@angular/platform-browser-dynamic" "^4.0.0"
+    "@angular/router" "^4.0.0"
+    core-js "^2.4.1"
+    rxjs "^5.1.0"
+    zone.js "^0.8.4"
+
 tryit@^1.0.1:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/tryit/-/tryit-1.0.3.tgz#393be730a9446fd1ead6da59a014308f36c289cb"
