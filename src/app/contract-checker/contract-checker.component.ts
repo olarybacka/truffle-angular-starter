@@ -1,7 +1,7 @@
 import { Web3Service } from './../web3.service';
 import { Component, OnInit } from '@angular/core';
-import { default as Web3} from 'web3';
-import { default as contract } from 'truffle-contract';
+import Web3 from 'web3';
+import contract from 'truffle-contract';
 import * as ping_artifacts from '../../../build/contracts/Ping.json';
 
 @Component({
@@ -15,25 +15,21 @@ export class ContractCheckerComponent implements OnInit {
   accountNumber: number;
   remoteAccountNumber: number;
   balance: number;
-  constructor(private web3Service: Web3Service) { }
+  constructor(private _web3Service: Web3Service) { }
 
   ngOnInit() {
-    this.web3 = this.web3Service.getWeb3();
+    this.web3 = this._web3Service.getWeb3();
     this.Ping.setProvider(this.web3.currentProvider);
     this.getAccount();
   }
 
-  getAccount() {
+  getAccount(): void {
     this.Ping.deployed()
-    .then(ping => {
-      return ping.getAddress.call();
-    })
-    .then(value => {
-        this.accountNumber = value;
-    });
+    .then(ping => ping.getAddress.call())
+    .then(value => this.accountNumber = value);
   }
 
-  checkBalance() {
+  checkBalance(): void {
     this.Ping.deployed().then(ping => {
       ping.getPongvalRemote().then((value) => {
         this.balance = value.toNumber();

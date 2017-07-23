@@ -1,7 +1,7 @@
 import { Web3Service } from './../web3.service';
 import { Component, OnInit } from '@angular/core';
-import { default as Web3} from 'web3';
-import { default as contract } from 'truffle-contract';
+import Web3 from 'web3';
+import contract from 'truffle-contract';
 import * as pong_artifacts from '../../../build/contracts/Pong.json';
 
 
@@ -17,48 +17,40 @@ export class ContractSenderComponent implements OnInit {
   balance: number;
   status: string;
   amount: number;
-  accounts: number[];
   account: number;
 
-  constructor(private web3Service: Web3Service) { }
+  constructor(private _web3Service: Web3Service) { }
 
   ngOnInit() {
-    this.web3 = this.web3Service.getWeb3();
+    this.web3 = this._web3Service.getWeb3();
     this.Pong.setProvider(this.web3.currentProvider);
     this.getAccount();
-    this.web3.eth.getAccounts((err, accs) => {
-      if (err != null) {
+    this.web3.eth.getAccounts((err, accounts) => {
+      if (err !== null) {
         alert('There was an error fetching your accounts.');
+        console.error(err);
         return;
       }
-      if (accs.length === 0) {
-        alert('Couldn\'t get any accounts! Make sure your Ethereum client is configured correctly.');
+      if (accounts.length === 0) {
+        alert(`Couldn't get any accounts`);
         return;
       }
-      this.accounts = accs;
-      this.account = this.accounts[0];
-      console.dir(this.accounts);
+      this.account = accounts[0];
+      console.dir(this.account);
     });
   }
 
   getAccount() {
     this.Pong.deployed()
-    .then(ping => {
-      return ping.getAddress.call();
-    })
-    .then(value => {
-        this.accountNumber = value;
-    });
+    .then(ping => ping.getAddress.call())
+    .then(value => this.accountNumber = value);
   }
 
   onSubmit() {
     this.setStatus('Sending... ');
     this.Pong.deployed()
-    .then(pong => {
-      return pong.setPongval(this.amount, {from: this.account});
-    }).then(() => {
-      this.setStatus('Submitted');
-    })
+    .then(pong => pong.setPongval(this.amount, {from: this.account}))
+    .then(() => this.setStatus('Submitted'))
     .catch((e) => {
       console.log(e);
       this.setStatus('Error');

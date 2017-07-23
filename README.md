@@ -17,7 +17,7 @@ Features two contracts written in Solidity that deploy to TestRPC network and co
 5. Reploy contracts in different console
 * `truffle compile`
 * `truffle migrate`
-6. Serve Angular (on http://localhost:8080)
+6. Serve Angular (on http://localhost:4200)
 * `npm start`
 
 ## Testing
