@@ -7,12 +7,14 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { ContractCheckerComponent } from './contract-checker/contract-checker.component';
 import { ContractSenderComponent } from './contract-sender/contract-sender.component';
+import { StatusComponent } from './status/status.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContractCheckerComponent,
-    ContractSenderComponent
+    ContractSenderComponent,
+    StatusComponent
   ],
   imports: [
     BrowserModule,

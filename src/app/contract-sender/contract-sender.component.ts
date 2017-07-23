@@ -47,21 +47,15 @@ export class ContractSenderComponent implements OnInit {
   }
 
   onSubmit() {
-    this.setStatus('Sending... ');
+    this.status = 'Sending... ';
     this.Pong.deployed()
-    .then(pong => pong.setPongval(this.amount, {from: this.account}))
-    .then(() => this.setStatus('Submitted'))
-    .catch((e) => {
-      console.log(e);
-      this.setStatus('Error');
+      .then(pong => pong.setPongval(this.amount, {from: this.account}))
+      .then(() => this.status = 'Submitted')
+      .catch((e) => {
+      console.error(e);
+      this.status = 'Error';
     });
   }
 
-  setStatus(message) {
-    this.status = message;
-    setTimeout(() => {
-     this.status = '';
-    }, 2000);
-  }
 
 }

@@ -6,7 +6,6 @@
       <input [(ngModel)]="amount" type="number" placeholder="e.g. 25"/>
     </div>
     <button (click)="onSubmit()" >Send</button>
-    <div class="status">
-      {{status}}
-    </div>
+ 
+    <app-status [status]="status"></app-status>
   </article>
