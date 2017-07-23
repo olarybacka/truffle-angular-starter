@@ -12,12 +12,12 @@ Features two contracts written in Solidity that deploy to TestRPC network and co
 3. Install truffle and testrpc globally (yarn or npm)
 * (sudo) npm install -g truffle
 * (sudo) npm install -g ethereumjs-testrpc
-4. Run [testrpc](https://github.com/ethereumjs/testrpc)
+4. Run RPC client [testrpc](https://github.com/ethereumjs/testrpc)
 * `testrpc`
-5. deploy contracts in different console
+5. Reploy contracts in different console
 * `truffle compile`
 * `truffle migrate`
-6. serve Angular (on http://localhost:8080)
+6. Serve Angular (on http://localhost:8080)
 * `npm start`
 
 ## Testing
