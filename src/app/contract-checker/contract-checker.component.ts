@@ -1,12 +1,13 @@
-import { Component, OnInit } from "@angular/core";
-import { default as Web3} from "web3";
-import { default as contract } from "truffle-contract";
-import * as ping_artifacts from "../../../build/contracts/Ping.json";
+import { Web3Service } from './../web3.service';
+import { Component, OnInit } from '@angular/core';
+import { default as Web3} from 'web3';
+import { default as contract } from 'truffle-contract';
+import * as ping_artifacts from '../../../build/contracts/Ping.json';
 
 @Component({
-  selector: "app-contract-checker",
-  templateUrl: "./contract-checker.component.html",
-  styleUrls: ["./contract-checker.component.scss"]
+  selector: 'app-contract-checker',
+  templateUrl: './contract-checker.component.html',
+  styleUrls: ['./contract-checker.component.scss']
 })
 export class ContractCheckerComponent implements OnInit {
   Ping = contract(ping_artifacts);
@@ -14,13 +15,12 @@ export class ContractCheckerComponent implements OnInit {
   accountNumber: number;
   remoteAccountNumber: number;
   balance: number;
-  constructor() { }
+  constructor(private web3Service: Web3Service) { }
 
   ngOnInit() {
-    this.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+    this.web3 = this.web3Service.getWeb3();
     this.Ping.setProvider(this.web3.currentProvider);
     this.getAccount();
-    console.log(this.web3);
   }
 
   getAccount() {
