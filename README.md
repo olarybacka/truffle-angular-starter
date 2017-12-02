@@ -1,26 +1,28 @@
-# Truffle Angular Ethereum Solidity dapp starter
-This is a starter project for developing Angular 2+ app on top of Ethereum [Truffle](https://github.com/trufflesuite/truffle) framework. 
+# NewCli
 
-Built with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.3. 
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.4.
 
-Features two contracts written in Solidity that deploy to TestRPC network and communicate with each other. Based on Ping ang Pong from [Solidity Baby Steps](https://github.com/fivedogit/solidity-baby-steps)
+## Development server
 
-## Building
-1. Clone the repo
-2. Install dependencies 
-* with `yarn` or `npm install`
-3. Install truffle and testrpc globally (yarn or npm)
-* (sudo) npm install -g truffle
-* (sudo) npm install -g ethereumjs-testrpc
-4. Run RPC client [testrpc](https://github.com/ethereumjs/testrpc)
-* `testrpc`
-5. Reploy contracts in different console
-* `truffle compile`
-* `truffle migrate`
-6. Serve Angular (on http://localhost:4200)
-* `npm start`
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Testing
-[Truffle](https://github.com/trufflesuite/truffle) comes with integrated testing enviroment with Mocha and Chai. Write tests and run
+## Code scaffolding
 
- `truffle test`.
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
+
+## Build
+
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+
+## Running unit tests
+
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Before running the tests make sure you are serving the app via `ng serve`.
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
