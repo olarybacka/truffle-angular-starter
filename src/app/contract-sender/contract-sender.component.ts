@@ -1,6 +1,5 @@
 import {Component, OnInit} from "@angular/core";
 import {PongDeployed, PongService, PongStaticData} from "./pong.service";
-import {MyOwnAccount} from "../app.component";
 import {AppState, DeployedAndStaticData, EthObservable} from "eth-observable";
 
 @Component({
@@ -9,7 +8,7 @@ import {AppState, DeployedAndStaticData, EthObservable} from "eth-observable";
   styleUrls: ['./contract-sender.component.scss']
 })
 export class ContractSenderComponent implements OnInit {
-  pong: DeployedAndStaticData<PongDeployed, PongStaticData, MyOwnAccount>;
+  pong: DeployedAndStaticData<PongDeployed, PongStaticData, string>;
   amount: number;
 
   constructor(public _ethObservable: EthObservable, private _pongService: PongService) {
@@ -22,7 +21,7 @@ export class ContractSenderComponent implements OnInit {
   }
 
   onSubmit() {
-    this.pong.deployed.setPongval(this.amount, {from: this.pong.yoursAccounts.getAccounts()});
+    this.pong.deployed.setPongval(this.amount, {from: this.pong.yoursAccounts});
     this._ethObservable.refresh(this._pongService);
   }
 

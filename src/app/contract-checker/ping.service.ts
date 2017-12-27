@@ -7,12 +7,12 @@ import {InitializeContract, DeployedAndStaticData, ValuesContract, EthObservable
   hideValuesHelper,
   AppState,
   ContractValues, TruffleContract} from "eth-observable";
-import {ContractEnum, MyOwnAccount} from "../app.component";
+import {ContractEnum} from "../app.component";
 
 
 @Injectable()
 export class PingService implements InitializeContract<ContractEnum>, ValuesContract<PingDeployed, PingStaticData> {
-  private pingSource = new Subject<DeployedAndStaticData<PingDeployed, PingStaticData, MyOwnAccount>>();
+  private pingSource = new Subject<DeployedAndStaticData<PingDeployed, PingStaticData, string>>();
   ping$ = this.pingSource.asObservable();
 
   public dependsOnModifier = [false, false];

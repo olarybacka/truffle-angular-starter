@@ -19,7 +19,7 @@ export class AppComponent {
   }
 
   ngOnInit(): void {
-    this._ethObservable.createConnection(new Web3(new Web3.providers.HttpProvider('http://localhost:9545')));
+    this._ethObservable.createConnection(new Web3(new Web3.providers.HttpProvider('http://localhost:8545')));
     new Promise(res => {
       this._ethObservable.web3.eth.getAccounts((err, accs) => {
         if (err != null) {
@@ -35,8 +35,8 @@ export class AppComponent {
         console.dir(this.accounts);
         return res(this.account);
       });
-    }).then((k: number) => {
-      const appState = new AppState(new Map(), new Map(), new Map(), new MyOwnAccount(k));
+    }).then((k: string) => {
+      const appState = new AppState(new Map(), new Map(), new Map(), k);
       this._ethObservable.getAccounts()
         .map(contractEnum => {
           this._ethObservable.getContract(appState.mapAllContractFunction.get(contractEnum), appState);
@@ -46,15 +46,6 @@ export class AppComponent {
       this.ping.initialize(appState).subscribe();
       this.pong.initialize(appState).subscribe();
     });
-  }
-}
-export class MyOwnAccount implements YoursAccounts<number> {
-
-  constructor(public accounts: number) {
-  }
-
-  getAccounts(): any {
-    return this.accounts;
   }
 }
 

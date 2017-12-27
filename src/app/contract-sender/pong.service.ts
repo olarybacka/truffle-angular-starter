@@ -2,7 +2,7 @@ import {Injectable} from "@angular/core";
 import {Observable} from "rxjs/Observable";
 import {default as Web3} from "web3";
 import * as pong_artifacts from "../../../build/contracts/Pong.json";
-import {ContractEnum, MyOwnAccount} from "../app.component";
+import {ContractEnum} from "../app.component";
 import {InitializeContract, DeployedAndStaticData, ValuesContract, EthObservable, initializeContractHelper,
   hideValuesHelper,
   AppState,
@@ -11,7 +11,7 @@ import {Subject} from "rxjs/Subject";
 
 @Injectable()
 export class PongService implements InitializeContract<ContractEnum>, ValuesContract<PongDeployed, PongStaticData> {
-  private pongSource = new Subject<DeployedAndStaticData<PongDeployed, PongStaticData, MyOwnAccount>>();
+  private pongSource = new Subject<DeployedAndStaticData<PongDeployed, PongStaticData, string>>();
   pong$ = this.pongSource.asObservable();
 
   public dependsOnModifier = [true, true];

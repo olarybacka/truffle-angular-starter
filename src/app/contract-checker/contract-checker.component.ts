@@ -1,7 +1,6 @@
 import {Component, OnInit} from "@angular/core";
 import {AppState, DeployedAndStaticData, EthObservable, YoursAccounts} from "eth-observable";
 import {PingDeployed, PingService, PingStaticData} from "./ping.service";
-import {MyOwnAccount} from "../app.component";
 
 @Component({
   selector: 'app-contract-checker',
@@ -10,7 +9,7 @@ import {MyOwnAccount} from "../app.component";
 })
 export class ContractCheckerComponent implements OnInit {
 
-  ping: DeployedAndStaticData<PingDeployed, PingStaticData, MyOwnAccount>;
+  ping: DeployedAndStaticData<PingDeployed, PingStaticData, string>;
 
   constructor(public _ethObservable: EthObservable, private _pingService: PingService) {
   }
