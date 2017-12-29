@@ -1,11 +1,11 @@
   <article class="contract">
-    <div class="account"> account: {{ accountNumber }}</div>
+    <div class="account"> account: {{ pong?.deployed.address}}</div>
     <h1>Change the value</h1>
     <div>
       <label for="amount">New value: </label>
       <input [(ngModel)]="amount" type="number" placeholder="e.g. 25"/>
     </div>
     <button (click)="onSubmit()" >Send</button>
- 
+
     <app-status [status]="status"></app-status>
   </article>

@@ -1,12 +1,11 @@
  <article class="contract">
-    <div class="account"> account: {{ accountNumber }}</div>
-    <h1>Check the value</h1>
-    <div class="secondary">
-      Value on account: {{ remoteAccountNumber  }} 
-      <br/> is <span class="balance"> {{ balance }} </span>
+   <div class="account"> account: {{ ping?.yoursAccounts }}</div>
+   <h1>Check the value</h1>
+   <div class="secondary">
+     Value on account: {{ ping?.staticData.address  }}
+     <br/> is <span class="balance">{{ping?.staticData.pongval}}</span>
     </div>
     <button (click)="checkBalance()">Check the value</button>
   </article>
 
 
-  
